@@ -8,6 +8,8 @@ import EditProfie from "./pages/EditProfile";
 import MyProfie from "./pages/MyProfile";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./ProtectedRoute";
+import Api from "./pages/Api";
+
 import { AuthProvider } from "./AuthContext";
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/api/*" element={<Api />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

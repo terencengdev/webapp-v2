@@ -40,7 +40,7 @@ export default function MyProfile() {
 
   const { userid } = useAuth();
 
-  const api_url = import.meta.env.API_URL;
+  const api_url = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     axios
