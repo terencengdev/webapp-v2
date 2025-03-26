@@ -52,8 +52,8 @@ export default function Register() {
       });
 
       if (response.status === 200) {
-        setCookie("token", response.data.token);
-        setCookie("userid", response.data.userdbid);
+        setCookie("authToken", response.data.token);
+        setCookie("userId", response.data.userdbid);
 
         const notify = () => toast.success(response.data.message);
         notify();
@@ -62,7 +62,7 @@ export default function Register() {
         setTimeout(() => {
           setLoggedIn(true);
           navigate("/home");
-        }, 1500);
+        }, 1200);
       }
     } catch (error) {
       if (error instanceof AxiosError) {
