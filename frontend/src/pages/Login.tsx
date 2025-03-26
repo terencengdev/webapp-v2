@@ -33,7 +33,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
 
   const token = getCookie("authToken");
-  const { setLoggedIn } = useAuth();
+  const { loggedIn, setLoggedIn } = useAuth();
 
   const api_url = "http://localhost:3002";
   const navigate = useNavigate();
@@ -68,14 +68,12 @@ export default function Login() {
             setCookie("authToken", response.data.token);
             setCookie("userId", response.data.userdbid);
           }
-          setLoggedIn(true);
+          setTimeout(() => {
+            setLoggedIn(true);
+          }, 1200);
         }
         reset();
         setLoading(false);
-
-        setTimeout(() => {
-          navigate("/home");
-        }, 1500);
       }
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -131,7 +129,7 @@ export default function Login() {
     );
   }
 
-  return token ? (
+  return loggedIn ? (
     <Navigate to="/home" replace />
   ) : (
     <>
