@@ -4,7 +4,6 @@
   "description": "Web Api backend",
   "main": "index.js",
   "scripts": {
-      "postinstall": "cd ../frontend && npm install && npm run build",
       "start": "node --env-file=../.env server.js"
   },
   "repository": {
