@@ -34,7 +34,7 @@ export default function Register() {
     mode: "all",
   });
 
-  const api_url = "http://localhost:3002";
+  const api_url = import.meta.env.VITE_API_URL;
 
   let user_id,
     password = "";

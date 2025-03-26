@@ -33,7 +33,7 @@ export default function Login() {
 
   const { loggedIn, setLoggedIn } = useAuth();
 
-  const api_url = "http://localhost:3002";
+  const api_url = import.meta.env.VITE_API_URL;
 
   let user_id,
     password = "";

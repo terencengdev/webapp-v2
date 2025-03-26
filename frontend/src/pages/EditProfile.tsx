@@ -160,7 +160,7 @@ export default function EditProfile() {
     }
   };
 
-  const api_url = "http://localhost:3002";
+  const api_url = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     axios
