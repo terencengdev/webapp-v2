@@ -6,9 +6,9 @@ import Logout from "./pages/Logout";
 import Home from "./pages/Home";
 import EditProfie from "./pages/EditProfile";
 import MyProfie from "./pages/MyProfile";
-import NotFound from "./pages/NotFound";
+// import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./ProtectedRoute";
-import Api from "./pages/Api";
+// import Api from "./pages/Api";
 
 import { AuthProvider } from "./AuthContext";
 
