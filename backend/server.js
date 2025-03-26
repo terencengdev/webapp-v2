@@ -8,6 +8,7 @@ const server = express();
 const PORT = 3002;
 const SECRET_KEY = "dvIoSPO3tKWH5jbHxuPtVYn3etiyLnsx";
 const uploadMiddleware = require("./middleware/uploadMiddleware");
+const path = require("path");
 
 const upload = uploadMiddleware("profileimages");
 
