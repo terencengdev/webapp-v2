@@ -6,7 +6,7 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 const server = express();
 const PORT = 3002;
-const SECRET_KEY = "dvIoSPO3tKWH5jbHxuPtVYn3etiyLnsx";
+const SECRET_KEY = process.env.SECRET_KEY;
 const uploadMiddleware = require("./middleware/uploadMiddleware");
 const path = require("path");
 
@@ -16,24 +16,12 @@ server.use(cors());
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
-let hostname = "123.123.123.123";
-let database = "tere4902_webapp2";
-let username = "tere4902_admin";
-let password = "FZ8&#_]7KWf@";
-
-// if (process.env.NODE_ENV == "development") {
-//   hostname = "localhost";
-//   database = "webapp-v1";
-//   username = "root";
-//   password = "";
-// }
-
 const db = mysql.createPool({
   connectionLimit: 10,
-  host: hostname,
-  database: database,
-  user: username,
-  password: password,
+  host: process.env.HOST,
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  password: process.env.PASSWORD,
   port: 3306,
 });
 
@@ -47,12 +35,13 @@ db.getConnection((err, connection) => {
 
   connection.release();
 });
+if (process.env.NODE_ENV === "production") {
+  server.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-server.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-server.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
-});
+  server.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+  });
+}
 
 server.get("/api/users/:id", (req, res) => {
   const sql = "SELECT * FROM webapp_user_profile";
