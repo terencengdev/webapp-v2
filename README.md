@@ -3,7 +3,7 @@
 Stack
 - Typescript
 - React JS
-- Nodejs Express
+- NodeJS Express
 - TailwindCSS
 
 Feature
