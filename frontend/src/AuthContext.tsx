@@ -4,8 +4,8 @@ import { Cookies } from "typescript-cookie";
 interface AuthContextType {
   loggedIn: boolean;
   setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
-  userid: boolean;
-  setUser: React.Dispatch<React.SetStateAction<boolean>>;
+  userid: any;
+  setUser: React.Dispatch<React.SetStateAction<any>>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -14,11 +14,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [loggedIn, setLoggedIn] = useState(!!Cookies.get("authToken"));
-  const [userid, setUser] = useState(Cookies.get("userId"));
+  const [userid, setUser] = useState<any>(Cookies.get("userId"));
 
   useEffect(() => {
     setLoggedIn(!!Cookies.get("authToken"));
-    setUser(Cookies.get("userId"));
+    const userId = Cookies.get("userId");
+
+    setUser(userId);
   }, [Cookies.get("authToken"), Cookies.get("userId")]);
 
   return (

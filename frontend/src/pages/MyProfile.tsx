@@ -71,6 +71,7 @@ export default function MyProfile() {
           <div className="flex flex-col md:flex-row flex-wrap lg:flex-nowrap gap-[20px] md:gap-[2%] w-full justify-between relative">
             <Tabs className="flex-[0_0_100%] md:flex-[0_0_23%] w-[100%] lg:w-[23%] order-2 lg:order-1 pr-0 md:pr-[2%]">
               <Tab
+                id={1}
                 className={`${
                   currentTab == 1 ? "active" : ""
                 } tab cursor-pointer font-[400] p-3 border-b border-[#cccccc]
@@ -80,6 +81,7 @@ export default function MyProfile() {
                 Basic Details
               </Tab>
               <Tab
+                id={2}
                 className={`${
                   currentTab == 2 ? "active" : ""
                 } tab cursor-pointer font-[400] p-3 border-b border-[#cccccc]
@@ -90,6 +92,7 @@ export default function MyProfile() {
               </Tab>
               {marital.toLowerCase() == "married" && (
                 <Tab
+                  id={3}
                   className={`${
                     currentTab == 3 ? "active" : ""
                   } tab cursor-pointer font-[400] p-3 border-b border-[#cccccc]
@@ -100,6 +103,7 @@ export default function MyProfile() {
                 </Tab>
               )}
               <Tab
+                id={4}
                 className={`${
                   currentTab == 4 ? "active" : ""
                 } tab cursor-pointer font-[400] p-3 border-b border-[#cccccc]

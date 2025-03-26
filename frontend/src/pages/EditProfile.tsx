@@ -135,7 +135,7 @@ export default function EditProfile() {
   });
 
   const handleClickTab = (tab: any) => {
-    const tabid = tab.target.id;
+    const tabid = tab.target.dataset.id;
     if (!tab1_all_valid) {
       setCurrentTab(1);
       const notify = () =>

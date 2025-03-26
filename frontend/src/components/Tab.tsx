@@ -12,7 +12,7 @@ export default function Tab({
   className = "",
 }: TabProps) {
   return (
-    <div id={id} onClick={onClick} className={`tab ${className}`}>
+    <div data-id={id} onClick={onClick} className={`tab ${className}`}>
       {children}
     </div>
   );
