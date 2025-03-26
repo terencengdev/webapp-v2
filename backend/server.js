@@ -45,6 +45,12 @@ db.getConnection((err, connection) => {
   connection.release();
 });
 
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+});
+
 server.get("/api/users/:id", (req, res) => {
   const sql = "SELECT * FROM webapp_user_profile";
 

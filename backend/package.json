@@ -4,7 +4,8 @@
   "description": "Web Api backend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "postinstall": "cd ../frontend && npm install && npm run build",
+      "start": "node --env-file=.env server.js"
   },
   "repository": {
     "type": "git",
