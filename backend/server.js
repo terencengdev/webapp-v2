@@ -25,8 +25,6 @@ const db = mysql.createPool({
   port: 3306,
 });
 
-console.log(process.env.DB_NAME);
-
 db.getConnection((err, connection) => {
   if (err) {
     console.log("Error connecting to MySQL server.");
@@ -37,13 +35,12 @@ db.getConnection((err, connection) => {
 
   connection.release();
 });
-if (process.env.NODE_ENV === "production") {
-  server.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  server.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
-  });
-}
+server.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+server.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+});
 
 server.get("/api/users/:id", (req, res) => {
   const sql = "SELECT * FROM webapp_user_profile";
