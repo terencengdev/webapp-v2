@@ -15,12 +15,22 @@ server.use(cors());
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
+let hostname = "217.21.85.1";
+let database = "tere4902_webapp";
+let username = "tere4902_admin";
+let password = "FZ8&#_]7KWf@";
+
+// hostname = "localhost";
+// database = "webapp-v1";
+// username = "root";
+// password = "";
+
 const db = mysql.createPool({
   connectionLimit: 100,
-  hostname: "localhost",
-  database: "webapp-v2",
-  user: "root",
-  password: "",
+  hostname: hostname,
+  database: database,
+  user: username,
+  password: password,
   port: 3306,
 });
 
