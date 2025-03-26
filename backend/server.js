@@ -37,6 +37,7 @@ db.getConnection((err, connection) => {
 });
 
 server.get("/api/users/:id", (req, res) => {
+  const userId = req.params.id;
   const sql = "SELECT * FROM webapp_user_profile WHERE user = ?";
 
   db.query(sql, [userId], (err, result) => {
