@@ -1,4 +1,4 @@
-# Web App V2 - Typescript + React JS + Node JS + Mysql
+# Web App V2
 
 - Typescript
 - React JS
