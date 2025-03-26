@@ -17,7 +17,7 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
 const db = mysql.createPool({
-  connectionLimit: 10,
+  connectionLimit: 50,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
   user: process.env.DB_USER,

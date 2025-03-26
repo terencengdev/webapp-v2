@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { useForm, SubmitHandler, useWatch, Control } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios, { AxiosError } from "axios";
+import { useAuth } from "../AuthContext";
+import { setCookie } from "typescript-cookie";
 
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-
-import { setCookie } from "typescript-cookie";
 
 import { ToastContainer, toast, Slide } from "react-toastify";
 
@@ -22,6 +22,7 @@ export default function Register() {
   const [pass_type, SetPassType] = useState("password");
   const [confirm_pass_type, SetConfirmPassType] = useState("password");
   const [loading, setLoading] = useState(false);
+  const { setLoggedIn } = useAuth();
 
   const {
     register,
@@ -59,6 +60,7 @@ export default function Register() {
         setLoading(false);
 
         setTimeout(() => {
+          setLoggedIn(true);
           navigate("/home");
         }, 1500);
       }

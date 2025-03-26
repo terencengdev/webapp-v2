@@ -1,15 +1,15 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { getCookie } from "typescript-cookie";
+import { useAuth } from "./AuthContext";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const token = getCookie("authToken");
+  const { loggedIn } = useAuth();
 
-  return token ? children : <Navigate to="/" />;
+  return loggedIn ? children : <Navigate to="/" />;
 };
 
 export default ProtectedRoute;
