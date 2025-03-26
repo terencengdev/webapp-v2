@@ -37,9 +37,9 @@ db.getConnection((err, connection) => {
 });
 
 server.get("/api/users/:id", (req, res) => {
-  const sql = "SELECT * FROM webapp_user_profile";
+  const sql = "SELECT * FROM webapp_user_profile WHERE user = ?";
 
-  db.query(sql, (err, result) => {
+  db.query(sql, [userId], (err, result) => {
     if (err) {
       return res.status(500).json(err);
     } else {
