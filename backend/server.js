@@ -16,21 +16,21 @@ server.use(cors());
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
-let hostname = "217.21.85.1";
-let database = "tere4902_webapp";
+let hostname = "123.123.123.123";
+let database = "tere4902_webapp2";
 let username = "tere4902_admin";
 let password = "FZ8&#_]7KWf@";
 
-// hostname = "localhost";
-// database = "webapp-v1";
-// username = "root";
-// password = "";
-
-console.log(hostname);
+// if (process.env.NODE_ENV == "development") {
+//   hostname = "localhost";
+//   database = "webapp-v1";
+//   username = "root";
+//   password = "";
+// }
 
 const db = mysql.createPool({
-  connectionLimit: 100,
-  hostname: hostname,
+  connectionLimit: 10,
+  host: hostname,
   database: database,
   user: username,
   password: password,
