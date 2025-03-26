@@ -45,8 +45,8 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/api/*" element={<Api />} />
-          <Route path="*" element={<NotFound />} />
+          {/* <Route path="/api/*" element={<Api />} /> */}
+          {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </BrowserRouter>
     </AuthProvider>
