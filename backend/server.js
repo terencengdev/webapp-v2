@@ -25,6 +25,8 @@ const db = mysql.createPool({
   port: 3306,
 });
 
+console.log(process.env.DB_NAME);
+
 db.getConnection((err, connection) => {
   if (err) {
     console.log("Error connecting to MySQL server.");
