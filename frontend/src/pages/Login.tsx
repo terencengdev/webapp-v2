@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useForm, SubmitHandler, useWatch, Control } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import axios, { AxiosError } from "axios";
 import { useAuth } from "../AuthContext";
-import { getCookie, setCookie } from "typescript-cookie";
+import { setCookie } from "typescript-cookie";
 
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
@@ -32,11 +31,9 @@ export default function Login() {
   const [keepLogin, setkeepLogin] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const token = getCookie("authToken");
   const { loggedIn, setLoggedIn } = useAuth();
 
   const api_url = "http://localhost:3002";
-  const navigate = useNavigate();
 
   let user_id,
     password = "";
