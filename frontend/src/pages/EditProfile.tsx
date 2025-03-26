@@ -126,13 +126,6 @@ export default function EditProfile() {
   const tab2_all_valid = tab2Required.every(
     (element) => element != "" && element !== undefined
   );
-  useEffect(() => {
-    if (!tab1_all_valid) {
-      setCurrentTab(1);
-    } else if (!tab2_all_valid) {
-      setCurrentTab(2);
-    }
-  });
 
   const handleClickTab = (tab: any) => {
     const tabid = tab.target.dataset.id;
