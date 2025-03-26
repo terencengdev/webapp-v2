@@ -26,6 +26,8 @@ let password = "FZ8&#_]7KWf@";
 // username = "root";
 // password = "";
 
+console.log(hostname);
+
 const db = mysql.createPool({
   connectionLimit: 100,
   hostname: hostname,
